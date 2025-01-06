@@ -2,9 +2,7 @@ import AppSidebar from '@/components/app-sidebar';
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar';
 import React, { PropsWithChildren } from 'react';
 
-type Props = {};
-
-function DashboardLayout({ children }: PropsWithChildren<Props>) {
+function DashboardLayout({ children }: PropsWithChildren) {
   return (
     <div className=''>
       <SidebarProvider>

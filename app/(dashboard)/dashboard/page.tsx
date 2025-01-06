@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AccountCard } from '@/components/account-card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -16,35 +16,42 @@ type Transactions = {
 
 type Accounts = { account_number: string; bank_name: string; id: number };
 
-export default function page() {
+export default function Dashboard() {
   const [balance, setBalance] = useState<number>(60000);
-  const [accounts, setAccounts] = useState<Accounts[]>([
-    {
-      id: 1,
-      bank_name: 'First Bank',
-      account_number: '1234567890',
-    },
-    {
-      id: 2,
-      bank_name: 'GTBank',
-      account_number: '0987654321',
-    },
-  ]);
-  const [transactions, setTransactions] = useState<Transactions[]>([
-    {
-      id: 1,
-      description: 'Salary',
-      amount: 2500000,
-      type: 'income',
-    },
-    {
-      id: 2,
-      description: 'Groceries',
-      amount: 15000,
-      type: 'expenditure',
-    },
-  ]);
+  const [accounts, setAccounts] = useState<Accounts[]>([]);
+  const [transactions, setTransactions] = useState<Transactions[]>([]);
   const { value: isOpen, setFalse, setTrue } = useBoolean();
+
+  useEffect(() => {
+    setBalance(70000);
+    setAccounts([
+      {
+        id: 1,
+        bank_name: 'First Bank',
+        account_number: '1234567890',
+      },
+      {
+        id: 2,
+        bank_name: 'GTBank',
+        account_number: '0987654321',
+      },
+    ]);
+
+    setTransactions([
+      {
+        id: 1,
+        description: 'Salary',
+        amount: 2500000,
+        type: 'income',
+      },
+      {
+        id: 2,
+        description: 'Groceries',
+        amount: 15000,
+        type: 'expenditure',
+      },
+    ]);
+  }, []);
 
   return (
     <div className='min-h-screen bg-gray-50 px-4 py-6'>

@@ -29,7 +29,7 @@ export default function LoginForm({ isOpen, onClose }: Props) {
     },
   });
 
-  const onSubmit = (value: any) => {
+  const onSubmit = (value: { username: string; password: string }) => {
     console.log(value);
     router.push('/dashboard');
     onClose();

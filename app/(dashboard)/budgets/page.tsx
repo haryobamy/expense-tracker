@@ -1,7 +1,7 @@
 import SavingCard from '@/components/saving-card';
 import React from 'react';
 
-export default function page() {
+export default function Budgets() {
   return (
     <div>
       <section className='min-h-screen bg-gray-50 px-4 py-6'>

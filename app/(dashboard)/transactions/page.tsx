@@ -1,7 +1,7 @@
 import LeadsTable from '@/components/activity-table';
 import React from 'react';
 
-function page() {
+function Transactions() {
   return (
     <section className='min-h-screen bg-gray-50 px-4 py-6'>
       <h2 className='text-xl font-semibold text-gray-800 mb-4'>
@@ -12,4 +12,4 @@ function page() {
   );
 }
 
-export default page;
+export default Transactions;

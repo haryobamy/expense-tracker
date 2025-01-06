@@ -2,7 +2,7 @@ import { AccountCard } from '@/components/account-card';
 import { Button } from '@/components/ui/button';
 import React from 'react';
 
-function page() {
+function LinkedCards() {
   return (
     <section className='min-h-screen bg-gray-50 px-4 py-6'>
       <div className='flex items-center justify-between mb-5'>
@@ -27,4 +27,4 @@ function page() {
   );
 }
 
-export default page;
+export default LinkedCards;

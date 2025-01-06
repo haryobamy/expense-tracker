@@ -1,15 +1,11 @@
 import {
   Clock3,
   CreditCard,
-  Frame,
   HandCoins,
   Home,
   LayoutDashboard,
-  Map,
   PieChart,
   PiggyBank,
-  Receipt,
-  User,
 } from 'lucide-react';
 
 export const data = {

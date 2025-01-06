@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import QRCode from 'qrcode.react';
-import { QrReader } from 'react-qr-reader';
+import React, { useEffect } from 'react';
 import { ModalPage } from './';
 import { QRCodeSVG } from 'qrcode.react';
 import {
@@ -16,13 +14,18 @@ import { Input } from './ui/input';
 import { Label } from './ui/label';
 
 type Props = {
-  value?: any;
   onClose: () => void;
   isOpen: boolean;
 };
 
-export function QrCodeGenerator({ value, isOpen, onClose }: Props) {
-  const form = useForm({
+type Payload = {
+  recipient: string;
+  amount: string;
+  currency: string;
+};
+
+export function QrCodeGenerator({ isOpen, onClose }: Props) {
+  const form = useForm<Payload>({
     defaultValues: {
       recipient: '',
       amount: '',
@@ -30,7 +33,7 @@ export function QrCodeGenerator({ value, isOpen, onClose }: Props) {
     },
   });
 
-  const onSubmit = (value: any) => {
+  const onSubmit = (value: Payload) => {
     console.log(value);
 
     // onClose();
@@ -38,7 +41,7 @@ export function QrCodeGenerator({ value, isOpen, onClose }: Props) {
   useEffect(() => {
     form.setValue('amount', '');
     form.setValue('recipient', '');
-  }, [isOpen]);
+  }, [isOpen, form]);
 
   return (
     <ModalPage isOpen={isOpen} onClose={onClose} className='w-[500px]'>
@@ -100,7 +103,6 @@ export function QrCodeGenerator({ value, isOpen, onClose }: Props) {
 }
 
 export function QRScanner() {
-  const [data, setData] = useState('');
   return (
     <></>
     // <QrReader

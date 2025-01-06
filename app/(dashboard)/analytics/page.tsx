@@ -17,7 +17,7 @@ import {
   ChartTooltipContent,
 } from '@/components/ui/chart';
 
-export const description = 'An interactive bar chart';
+// export const description = 'An interactive bar chart';
 
 const chartData = [
   { date: '2024-04-01', income: 222, expenditure: 150 },
@@ -127,7 +127,7 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-function page() {
+export default function Analytics() {
   const [activeChart, setActiveChart] =
     React.useState<keyof typeof chartConfig>('income');
 
@@ -222,5 +222,3 @@ function page() {
     </section>
   );
 }
-
-export default page;
